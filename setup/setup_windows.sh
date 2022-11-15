@@ -1,0 +1,2 @@
+./vim.sh
+./github.sh
