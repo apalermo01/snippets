@@ -27,7 +27,9 @@ sudo apt-get install
 	ca-certificates \
 	curl \
 	gnupg \
-	lsb-release
+	lsb-release \
+	pass \
+	gpg
 fi
 
 if $(run_block "configure vim?"); then
