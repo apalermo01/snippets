@@ -73,4 +73,6 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 sudo docker run hello-world
 fi
 
-
+### gcc
+sudo apt-get update
+sudo apt install build-essential
