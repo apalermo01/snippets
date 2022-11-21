@@ -76,3 +76,8 @@ fi
 ### gcc
 sudo apt-get update
 sudo apt install build-essential
+### TODO:
+# i3
+# vpn
+
+
