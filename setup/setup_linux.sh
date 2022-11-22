@@ -3,7 +3,7 @@
 function run_block() {
 	while :
 	do
-		read -p "$1 [y, ] " input
+		read -p "$1 [y, n] " input
 		if [[ $input == "y" ]]; then
 			return
 		elif [[ $input == "n" ]]; then
@@ -62,7 +62,7 @@ sudo dpkg -i ~/Downloads/xppen.deb
 fi
 
 
-if $(run_block "install docker (select no if not runningn ubuntu, needs a different download link)?"); then
+if $(run_block "install docker (select no if not running ubuntu, needs a different download link)?"); then
 sudo apt --fix-broken install
 sudo mkdir -p /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
@@ -89,3 +89,6 @@ sudo apt-get install virtualbox
 sudo apt install virtualbox-dkms
 
 fi
+
+### obsidian
+sudo curl -o obsidian.AppImage https://github.com/obsidianmd/obsidian-releases/releases/download/v1.0.3/Obsidian-1.0.3.AppImage

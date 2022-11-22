@@ -14,6 +14,7 @@ case $OSTYPE in
 		git-credential-manager-core configure
 		
 		echo "Running gpg genkey, please remember the id you use"
+		read -p "Running gpg genkey, please remember the id you enter (press ENTER to continue)"
 		gpg --gen-key
 		read -p "what was the id you used for gen-key? " gpgid
 		pass init $gpgid
