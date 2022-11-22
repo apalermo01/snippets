@@ -22,7 +22,7 @@ echo '### INSTALLING PACKAGES ###########'
 echo '###################################'
 
 if $(run_block "install apt packages?"); then
-sudo apt-get install 
+sudo apt-get install \
 	vim \
 	ca-certificates \
 	curl \
@@ -35,7 +35,7 @@ sudo apt-get install
 fi
 
 if $(run_block "configure vim?"); then
-bash ./vim.sh
+bash vim.sh
 fi
 
 if $(run_block "configure git?"); then
