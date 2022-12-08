@@ -203,9 +203,9 @@ exec bash ~/set_monitor_left.sh
 exec_always compton --config ~/.config/compton.conf 
 
 ### gaps
-gaps inner 15
-gaps outer -4
-smart_gaps on
+# gaps inner 15
+# gaps outer -4
+# smart_gaps on
 
 
 # class                 border		backgr		text		indicator		child_border
