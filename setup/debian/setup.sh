@@ -52,7 +52,7 @@ bash ./github.sh
 fi
 
 if $(run_block "install anaconda?"); then
-bash ./linux.sh
+bash ./anaconda.sh
 fi
 
 if $(run_block "install zoom?"); then
