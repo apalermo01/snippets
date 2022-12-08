@@ -31,7 +31,8 @@ sudo apt-get install \
 	pass \
 	gpg \
     build-essential \
-	i3
+	i3 \
+	pavucontrol
 fi
 
 if $(run_block "configure vim?"); then
@@ -43,26 +44,26 @@ bash ./github.sh
 fi
 
 if $(run_block "install anaconda?"); then
-bash ./anaconda_linux.sh
+bash ./linux.sh
 fi
 
-if $(run_block "install zoom (valid for any debis based distros)?"); then
+if $(run_block "install zoom?"); then
 curl -o ~/Downloads/zoom_amd64.deb -L https://zoom.us/client/5.12.6.173/zoom_amd64.deb
 sudo dpkg -i ~/Downloads/zoom_amd64.deb
 fi
 
-if $(run_block "install xournal? (valid for any debian based distros)"); then
+if $(run_block "install xournal?"); then
 curl -o ~/Downloads/xournal.deb -L https://github.com/xournalpp/xournalpp/releases/download/v1.1.2/xournalpp-1.1.2-Debian-bullseye-x86_64.deb
 sudo dpkg -i ~/Downloads/xournal.deb
 fi
 
-if $(run_block "install xppen (valid for any debian based distros)?"); then
+if $(run_block "install xppen"); then
 curl -o ~/Downloads/xppen.deb -L https://www.xp-pen.com/download/file/id/1949/pid/298/ext/deb.html
 sudo dpkg -i ~/Downloads/xppen.deb
 fi
 
 
-if $(run_block "install docker (select no if not runningn ubuntu, needs a different download link)?"); then
+if $(run_block "install docker? (only select yes if running ubuntu)"); then
 sudo apt --fix-broken install
 sudo mkdir -p /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
@@ -76,7 +77,7 @@ sudo docker run hello-world
 fi
 
 ### vpn
-if $(run_block "install expressvpn (select no if not running ubuntu, needs a different download link)?"); then
+if $(run_block "install expressvpn? (only select yes if running ubuntu)"); then
 curl -o ~/Downloads/expressvpn.deb -L https://www.expressvpn.works/clients/linux/expressvpn_3.36.0.2-1_amd64.deb
 sudo dpkg -i ~/Downloads/expressvpn.deb
 echo "Activating expressvpn, you must use an activation link from their website"
@@ -89,3 +90,15 @@ sudo apt-get install virtualbox
 sudo apt install virtualbox-dkms
 
 fi
+
+### wallpaper
+curl -o ~/Pictures/F1-wallpaper.png -L https://wallpapercave.com/download/4k-epic-race-wallpapers-wp11251731
+
+
+### copying dotfiles
+cp ../../debian-dotfiles/compton.conf ~/.config/compton.conf
+cp ../../debian-dotfiles/i3-config ~/.config/i3/config
+
+### other stuff
+echo "setup is almost complete. To finish setting up vim, open vim and type "
+echo ":PlugInstall"
