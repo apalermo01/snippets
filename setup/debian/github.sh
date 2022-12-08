@@ -16,12 +16,13 @@ case $OSTYPE in
 		sh ./linux-install-source.sh &&
 		git-credential-manager-core configure
 		
-		echo "Running gpg genkey, please remember the id you use"
 		read -p "Running gpg genkey, please remember the id you enter (press ENTER to continue)"
 		gpg --gen-key
 		read -p "what was the id you used for gen-key? " gpgid
 		pass init $gpgid
 		git config --global credential.credentialStore gpg
+		rm ./linux-install-source.sh
+		rm -r git-credential-manager
 		;;
 	*)
 		echo "this script has not been configured for $OSTYPE"

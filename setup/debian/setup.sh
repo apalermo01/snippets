@@ -1,15 +1,23 @@
 #!/bin/bash
 
 function run_block() {
-	while :
-	do
-		read -p "$1 [y, n] " input
-		if [[ $input == "y" ]]; then
+	# while :
+	# do
+	# 	read -p "$1 [y, n] " input
+	# 	if [[ $input == "y" ]]; then
+	# 		return
+	# 	elif [[ $input == "n" ]]; then
+	# 		false
+	# 	fi
+	# done
+
+	read -p "$1 [y, n] " input
+	case $input in
+		y|Y)
 			return
-		elif [[ $input == "n" ]]; then
-			false
-		fi
-	done
+	esac
+
+	false
 }
 
 echo '###################################'
@@ -49,25 +57,21 @@ fi
 
 if $(run_block "install zoom?"); then
 curl -o ~/Downloads/zoom_amd64.deb -L https://zoom.us/client/5.12.6.173/zoom_amd64.deb
-sudo dpkg -i ~/Downloads/zoom_amd64.deb
+dpkg -i ~/Downloads/zoom_amd64.deb
 fi
 
 if $(run_block "install xournal?"); then
 curl -o ~/Downloads/xournal.deb -L https://github.com/xournalpp/xournalpp/releases/download/v1.1.2/xournalpp-1.1.2-Debian-bullseye-x86_64.deb
-sudo dpkg -i ~/Downloads/xournal.deb
+dpkg -i ~/Downloads/xournal.deb
 fi
 
 if $(run_block "install xppen"); then
 curl -o ~/Downloads/xppen.deb -L https://www.xp-pen.com/download/file/id/1949/pid/298/ext/deb.html
-sudo dpkg -i ~/Downloads/xppen.deb
+dpkg -i ~/Downloads/xppen.deb
 fi
 
 
-<<<<<<< HEAD:setup/debian/setup.sh
 if $(run_block "install docker? (only select yes if running ubuntu)"); then
-=======
-if $(run_block "install docker (select no if not running ubuntu, needs a different download link)?"); then
->>>>>>> 4806343780f8c24233e803422ff6f6f144e4a5eb:setup/setup_linux.sh
 sudo apt --fix-broken install
 sudo mkdir -p /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
@@ -83,7 +87,7 @@ fi
 ### vpn
 if $(run_block "install expressvpn? (only select yes if running ubuntu)"); then
 curl -o ~/Downloads/expressvpn.deb -L https://www.expressvpn.works/clients/linux/expressvpn_3.36.0.2-1_amd64.deb
-sudo dpkg -i ~/Downloads/expressvpn.deb
+dpkg -i ~/Downloads/expressvpn.deb
 echo "Activating expressvpn, you must use an activation link from their website"
 expressvpn activate
 fi
