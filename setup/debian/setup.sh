@@ -39,8 +39,8 @@ sudo apt-get install \
 	pass \
 	gpg \
     build-essential \
-	i3 \
-	pavucontrol
+	pavucontrol \
+	pip
 fi
 
 if $(run_block "configure vim?"); then
@@ -57,17 +57,19 @@ fi
 
 if $(run_block "install zoom?"); then
 curl -o ~/Downloads/zoom_amd64.deb -L https://zoom.us/client/5.12.6.173/zoom_amd64.deb
-dpkg -i ~/Downloads/zoom_amd64.deb
+sudo dpkg -i ~/Downloads/zoom_amd64.deb
+sudo apt --fix-broken install
 fi
 
 if $(run_block "install xournal?"); then
 curl -o ~/Downloads/xournal.deb -L https://github.com/xournalpp/xournalpp/releases/download/v1.1.2/xournalpp-1.1.2-Debian-bullseye-x86_64.deb
-dpkg -i ~/Downloads/xournal.deb
+sudo dpkg -i ~/Downloads/xournal.deb
+sudo apt --fix-broken install
 fi
 
 if $(run_block "install xppen"); then
 curl -o ~/Downloads/xppen.deb -L https://www.xp-pen.com/download/file/id/1949/pid/298/ext/deb.html
-dpkg -i ~/Downloads/xppen.deb
+sudo dpkg -i ~/Downloads/xppen.deb
 fi
 
 
@@ -107,9 +109,16 @@ curl -o ~/Pictures/F1-wallpaper.png -L https://wallpapercave.com/download/4k-epi
 if $(run_block "install obsidian?"); then
 sudo curl -o obsidian.AppImage https://github.com/obsidianmd/obsidian-releases/releases/download/v1.0.3/Obsidian-1.0.3.AppImage
 fi
+
+### i3
+if $(run_block "install and configure i3?"); then
+sudo apt install i3 
+pip install --user bumblebee-status
+mkdir -p ~/.config/i3
+cp ../../debian-dotfiles/i3-config ~/.config/i3/config
+fi
 ### copying dotfiles
 cp ../../debian-dotfiles/compton.conf ~/.config/compton.conf
-cp ../../debian-dotfiles/i3-config ~/.config/i3/config
 
 ### other stuff
 echo "setup is almost complete. To finish setting up vim, open vim and type "
