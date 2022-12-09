@@ -23,7 +23,8 @@ if $(run_block "install apt packages?"); then
 	    build-essential \
 		pavucontrol \
 		pip \
-		neofetch
+		neofetch \
+		xclip
 fi
 
 if $(run_block "configure vim?"); then
