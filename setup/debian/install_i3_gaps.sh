@@ -5,6 +5,8 @@
 # ensure that i3 is not installed
 sudo apt remove i3
 
+sudp apt install meson
+
 # install dependencies
 sudo apt-get install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev \
 libxcb-util0-dev libxcb-icccm4-dev libyajl-dev \
