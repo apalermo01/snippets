@@ -36,6 +36,7 @@ font pango:monospace 10
 # custom bindsyms
 bindsym $mod+p exec ~/.config/i3/bin/logout.sh
 bindsym $mod+f exec firefox
+bindsym $mod+b exec brave-browser
 bindsym $mod+Ctrl+f exec ~/.config/i3/bin/rofifinder.sh 
 
 # Start XDG autostart .desktop files using dex. See also
@@ -203,9 +204,9 @@ exec bash ~/set_monitor_left.sh
 exec_always compton --config ~/.config/compton.conf 
 
 ### gaps
-# gaps inner 15
-# gaps outer -4
-# smart_gaps on
+gaps inner 15
+gaps outer -4
+smart_gaps on
 
 
 # class                 border		backgr		text		indicator		child_border
