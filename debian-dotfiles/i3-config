@@ -219,7 +219,7 @@ client.placeholder      $red 		$background $color2 	$color2 			$color2
 # for_window [class="^.*"] border pixel 0
 
 # start vpn
-exec expressvpn connect
+# exec expressvpn connect
 
 # keybinding for tutoring mode - automatically open all programs that I use when working with students
 # bindsym $mod+t exec ~/.config/i3/bin/tutoring_mode.sh
