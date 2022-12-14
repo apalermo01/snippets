@@ -68,7 +68,9 @@ if $(run_block "install virtualbox?"); then
 fi
 
 ### wallpaper
+if $(run_block "download wallpaper?"); then
 curl -o ~/Pictures/F1-wallpaper.png -L https://wallpapercave.com/download/4k-epic-race-wallpapers-wp11251731
+fi
 
 ### setting up bashrc
 echo "neofetch" >> ~/.bashrc
